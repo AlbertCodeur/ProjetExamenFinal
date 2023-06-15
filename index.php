@@ -8,20 +8,20 @@ include "header.php";
     General
   </p>
   <ul class="menu-list">
-    <li><a>Dashboard</a></li>
-    <li><a>Customers</a></li>
+    <li><a>Tous mes Posts</a></li>
+    <li><a>Les profils</a></li>
   </ul>
   <p class="menu-label">
     Administration
   </p>
   <ul class="menu-list">
-    <li><a>Team Settings</a></li>
+    <li><a>Parametres Gestion des Posts</a></li>
     <li>
-      <a class="is-active">Manage Your Team</a>
+      <a class="is-active">Gerer vos Posts</a>
       <ul>
-        <li><a>Members</a></li>
-        <li><a>Plugins</a></li>
-        <li><a>Add a member</a></li>
+        <li><a>Ajouter un nouveau Posts</a></li>
+        <li><a>Modifier un post</a></li>
+        <li><a>Supprimer un Post</a></li>
       </ul>
     </li>
     <li><a>Invitations</a></li>
@@ -39,6 +39,7 @@ include "header.php";
 </aside>
 </div>
 <div style="width: 50%;margin: 20px; margin-left:40% ; margin-bottom: 15px; height: auto; position: absolute;" class="column">
+<h1>PUBLIER PAR : KOISSI ALBERT a 10:30:00</h1>
 <figure class="image is-16by9">
   <iframe class="has-ratio" width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
 </figure>
@@ -54,11 +55,11 @@ include "header.php";
 <a class="button is-primary" type="submit">envoyer</a>
 </div>
 </div>
-<div style=" margin-top: 25px; text-align: right; margin-right: 10px; font-size: 20px; width: 20px; height: 20px; color: lightgray;">
-<a href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+<div style=" margin-top: 5px; ; margin-right: 10px; font-size: 20px; width: 50px; height: 20px; color: lightgray;">
+<a href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>(0)
 </div>
-<div  style=" margin-top: 25px; text-align: right; font-size: 20px; color: lightgray ; width: 20px; height: 20px;">
-<a href=""><i class="fa fa-share" aria-hidden="true"></i></a>
+<div  style=" margin-top: 5px; ; font-size: 20px; color: lightgray ; width: 50px; height: 20px;">
+<a href=""><i class="fa fa-share" aria-hidden="true"></i></a>(0)
 </div>
 </div>
 </div>

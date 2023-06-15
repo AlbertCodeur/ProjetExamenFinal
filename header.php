@@ -44,22 +44,16 @@ $_SESSION['id']=1;
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          compte
+          Mon Compte
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
+          <h3 style="color:blue ;">koissialbert_CR</h6>
+          <h5 style="color:blue ;">Email:koissialbertjunior@gmail.com</h5>
+          <h6 style="color:blue ;">16/08/1998</h6>
           <hr class="navbar-divider">
           <a class="navbar-item">
-            Report an issue
+            Modifier
           </a>
         </div>
       </div>
@@ -72,7 +66,7 @@ $_SESSION['id']=1;
             <strong>Sign up</strong>
           </a>
           <?php
-          if($_SESSION['id']==null){ ?>
+          if($_SESSION['id']!=null){ ?>
           <a class="button is-light">
             Log out
           </a>
