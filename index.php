@@ -1,5 +1,9 @@
 <?php
 include "header.php";
+$req="SELECT * FROM posts";
+$resultat=mysqli_query($conn,$req);
+if($resultat)
+{  
 ?>
 <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd" style="width:auto; height: 100% ; margin-top: 5%;">
 <div style="width: 30%;position: fixed;" class="column  ">
@@ -39,17 +43,32 @@ include "header.php";
 </aside>
 </div>
 <div style="width: 50%;margin: 20px; margin-left:40% ; margin-bottom: 15px; height: auto; position: absolute;" class="column">
-<h1>PUBLIER PAR : KOISSI ALBERT a 10:30:00</h1>
+<?php  
+ while($row=mysqli_fetch_assoc($resultat))
+ {
+   $_SESSION['idu']=$row['idu'];
+   $_SESSION['code']=$row['code'];
+   $idu=$row['idu'];
+   $req="SELECT * FROM user where idu=$idu";
+$result=mysqli_query($conn,$req);
+if($result)
+{  
+  if($rows=mysqli_fetch_assoc($result))
+ {
+?>
+
+<h1>PUBLIER PAR : <?= $rows['nom'] ?>  <?= $rows['prenom'] ?> depuis <?= $row['datepost'] ?> </h1>
+<?php }} ?>
 <figure class="image is-16by9">
-  <iframe class="has-ratio" width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+  <embed class="has-ratio" width="640" height="360" src="<?= "include/img/".$row['media']?>" frameborder="0" allowfullscreen></embed>
 </figure>
 <div style="margin: 10px;">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt laudantium unde ipsa expedita et. Laboriosam enim corporis omnis dolores saepe ullam necessitatibus, iusto doloribus perferendis nisi animi quos accusamus est debitis distinctio facilis ut velit illo. Est, facilis dicta cupiditate, unde delectus iure nobis placeat neque, dolores fuga officia. Voluptatem.</p>
+<p><?= $row['descript'] ?></p>
 </div>
 <div style=" padding: 10px; width: 100%; position: relative; display: inline-flex; height: 10%;">
 <div class="field has-addons" style=" width: 100%; right: 50px; margin: 20px;padding-right:0px;">
 <div>
-<input class=" control input is-primary" type="text" placeholder="commentaires">
+<input class=" control input is-primary" type="text" name="commentaire" placeholder="commentaires">
 </div>
 <div class=" control">
 <a class="button is-primary" type="submit">envoyer</a>
@@ -62,5 +81,10 @@ include "header.php";
 <a href=""><i class="fa fa-share" aria-hidden="true"></i></a>(0)
 </div>
 </div>
+<?php
+ }}else{
+  echo "echo erreur insertion!";
+ }
+ ?>
 </div>
 </div>

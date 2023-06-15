@@ -1,9 +1,26 @@
 <?php
+session_start();
 include "header.php";
+if(isset($_POST['publier']))
+{
+$idu=$_SESSION['idu'];
+$description=$_POST['description'];
+$media=$_FILES['media']['name'];
+$dest="include/img/".$media;
+move_uploaded_file($_FILES['media']['tmp_name'],$dest);
+$req="INSERT INTO posts(idu,media,descript) VALUES('$idu','$media','$description')";
+try {
+    $resultat=mysqli_query($conn,$req);
+    header("location:index.php");
+} catch (Exception $e) {
+    $error=$e->getMessage();
+    echo "Erreur d'issertion!\n".$error;
+}
+}
 ?>
 
 <div style="width: 50%; margin-top: 70px; margin-bottom: 5%; margin-left: 25%;">
-<form action="ajout.php" method="POST" enctype="multipart/form-data">
+<form action="addp.php" method="POST" enctype="multipart/form-data">
 <div class="field" style="font-size: 50px;">
 Publication d'un Post
 </div>
@@ -11,24 +28,24 @@ Publication d'un Post
 <div class="field">
     <label class="label">Media</label>
     <div class="control">
-        <input type="file" name="img" class="form-control" placeholder="image">
+        <input type="file" name="media" class="form-control" placeholder="Media">
     </div>
 </div>
 
 <div class="field">
   <label class="label">Decrivez votre Post en quelque ligne.</label>
   <div class="control">
-    <textarea class="textarea" placeholder="Textarea"></textarea>
+    <textarea class="textarea" name="description" placeholder="Textarea"></textarea>
   </div>
 </div>
 
 
 <div class="field is-grouped">
   <div class="control">
-    <button class="button is-primary">Submit</button>
+    <button name="publier" type="submit" class="button is-primary">Publier</button>
   </div>
   <div class="control">
-    <button class="button is-link is-light">Cancel</button>
+    <button type="reset" class="button is-link is-light">Cancel</button>
   </div>
 </div>
 </form>

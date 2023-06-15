@@ -5,7 +5,6 @@ $password="";
 $db="GesRsocial";
 try {
     $conn=mysqli_connect($host,$user,$password,$db);
-    echo"connexion ok";
     $file="config.ini";
     $line="Configuration fichier de base de donnees\n
     host=$host\n
@@ -13,10 +12,8 @@ try {
     password=$password\n
     db=$db\n
     ";
-    if(file_put_contents($file,$line)!=false)
+    if(!file_put_contents($file,$line)!=false)
     {
-        echo"fichier creer";
-    }else{
         echo"erreur creation fichier";
     }
 } catch (Exception $e) {

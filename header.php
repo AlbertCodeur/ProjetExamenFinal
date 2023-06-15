@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['id']=1;
+include "connexiondb.php";
 ?>
 
 <!DOCTYPE html>
@@ -34,52 +34,62 @@ $_SESSION['id']=1;
 
   <div class="navbar-menu" id="navMenu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a href="index.php" class="navbar-item">
         Home
       </a>
 
       <a class="navbar-item">
         Documentation
       </a>
-
+      <?php  
+        if(isset($_SESSION['idu']))
+        {
+        $idu=$_SESSION['idu'];
+        $req="SELECT * FROM user where idu=$idu";
+        $result=mysqli_query($conn,$req);
+        if($result)
+        {  
+          if($rows=mysqli_fetch_assoc($result))
+      {
+  ?>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Mon Compte
         </a>
-
+       
         <div class="navbar-dropdown">
-          <h3 style="color:blue ;">koissialbert_CR</h6>
-          <h5 style="color:blue ;">Email:koissialbertjunior@gmail.com</h5>
-          <h6 style="color:blue ;">16/08/1998</h6>
+          <h3 style="color:blue ;"><?= $rows['nom'] ?><?= $rows['prenom'] ?>_CR</h6>
+          <h5 style="color:blue ;">Email:<?= $rows['mail'] ?></h5>
+          <h6 style="color:blue ;"><?= $rows['date_naiss'] ?></h6>
           <hr class="navbar-divider">
           <a class="navbar-item">
             Modifier
           </a>
-        </div>
+        </div> 
+   <?php }}} ?>
+       
       </div>
     </div>
-
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
+          <?php if(!isset($_SESSION['idu'])) { ?>
+          <a href="add.php" class="button is-primary">
             <strong>Sign up</strong>
           </a>
-          <?php
-          if($_SESSION['id']!=null){ ?>
-          <a class="button is-light">
-            Log out
-          </a>
-          <?php }else {  ?>
-          <a class="button is-light">
+          <a href="connexion.php" class="button is-light">
             Log in
+          </a>
+          <?php }else { ?>
+          <a href="deconnexion.php" class="button is-info">
+            Log out
           </a>
           <?php } ?>
         </div>
       </div>
     </div>
   </div>
-</nav>
+</nav> 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
 
