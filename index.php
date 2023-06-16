@@ -9,7 +9,7 @@ if($resultat)
   {
 ?>
 <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd" style="width:auto; height: 100% ; margin-top: 5%;">
-<div style="width: 30%;position: fixed;" class="column  ">
+<div style="width: 30%;position: fixed;" class="box column  ">
 <aside class="menu">
   <p class="menu-label">
     General

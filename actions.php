@@ -46,4 +46,43 @@ if(isset($_GET['t'],$_GET['id'],$_SESSION['idu']) AND !empty($_GET['t']) AND !em
 }else{
   header("location:index.php");
 }
+if(isset($_GET['id']))
+{
+$code=$_GET['id'];
+$req="DELETE FROM posts WHERE code='$code'";
+try {
+    $resultat=mysqli_query($conn,$req);
+    header("location:index.php");
+} catch (Exception $e) {
+    $error=$e->getMessage();
+    echo "Erreur d'issertion!\n".$error;
+}
+}
+if(isset($_POST['soumettre']) AND isset($_GET['id']))
+{
+$idu=$_GET['id'];
+$nom=$_POST['nom'];
+$prenom=$_POST['prenom'];
+$date_naiss=$_POST['date_naiss'];
+$pays=$_POST['pays'];
+$motivation=$_POST['motivation'];
+$sexe=$_POST['sexe'];
+$tel=$_POST['tel'];
+$fonction=$_POST['fonction'];
+$profil=$_FILES['profil']['name'];
+$dest="include/img/".$profil;
+
+
+move_uploaded_file($_FILES['profil']['tmp_name'],$dest);
+$req=" UPDATE user SET nom='$nom',prenom='$prenom',date_naiss='$date_naiss',pays='$pays',motivation='$motivation',sexe='$sexe',profil='$profil',tel='$tel',fonction='$fonction' where idu='$idu'";
+try {
+    $resultat=mysqli_query($conn,$req);
+    if($result){
+    header("location:index.php");
+    }
+} catch (Exception $e) {
+    $error=$e->getMessage();
+    echo "Erreur d'issertion!\n".$error;
+}
+}
 ?>

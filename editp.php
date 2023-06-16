@@ -31,7 +31,7 @@ if($result)
 </div>
 <div style=" padding-bottom: 50px; margin:10px ; width: 100%; position: relative; display: inline-flex; height: 10%;">
 <div style=" margin-top: 5px; ; margin-right: 10px; font-size: 20px; width: 50px; height: 20px; color: lightgray;">
-<a class="button is-warning" type="button" href="actions.php?t=2&id=<?= $code ?>">modifier</a>
+<a class="button is-warning" type="button" href="modificationp.php?&id=<?= $row['code'] ?>">modifier</a>
 </div>
 </div>
 <?php

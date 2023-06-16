@@ -31,12 +31,14 @@ if($result)
 </div>
 <div style=" padding-bottom: 50px; margin:10px ; width: 100%; position: relative; display: inline-flex; height: 10%;">
 <div style=" margin-top: 5px; ; margin-right: 10px; font-size: 20px; width: 50px; height: 20px; color: lightgray;">
-<a class="button  is-danger" type="button" href="actions.php?t=2&id=<?= $code ?>">supprimer</a>
+<a class="button  is-danger" type="button" href="actions.php?id=<?= $row['code'] ?>">supprimer</a>
 </div>
 </div>
 <?php
  }}else{
   echo "echo erreur insertion!";
  }
+
+
  ?>
 </div>
