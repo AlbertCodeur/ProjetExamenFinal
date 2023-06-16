@@ -22,11 +22,42 @@ $mdp_secure=hash_hmac("sha256",$mdp,"cle");
 $req= "INSERT INTO user(nom,prenom,mail,date_naiss,pays,mdp,motivation,sexe,profil,tel,fonction) VALUES('$nom','$prenom','$mail','$date_naiss','$pays','$mdp_secure','$motivation','$sexe','$profil','$tel','$fonction')";
 try {
     $resultat=mysqli_query($conn,$req);
+if($resultat)
+{  
+  $req="SELECT * FROM user";
+  $result=mysqli_query($conn,$req);
+  if($result)
+  {
+  while($rows=mysqli_fetch_assoc($result))
+ {
+  $nom=$rows['nom'];
+  $prenom=$rows['prenom'];
+  $email=$rows['mail'];
+  $fonction=$rows['fonction'];
+  $file="creationuser.txt";
+  $line="l'utilisateur $nom vient d'etre creer \n
+  nom=$nom\n
+  prenom=$prenom\n
+  email=$email\n
+  Profession=$fonction\n
+  ";
+  if(!file_put_contents($file,$line, FILE_APPEND)!==false)
+  {
+      echo"erreur creation fichier";
+  }else
+  {
     header("location:index.php");
+  }
+ }
+}
+}
+   
+
 } catch (Exception $e) {
     $error=$e->getMessage();
     echo "Erreur d'issertion!\n".$error;
 }
+
 }
 }
 ?>

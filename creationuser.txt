@@ -1,0 +1,42 @@
+
+  l'utilisateur koissi vient d'etre creer
+
+  nom=koissi
+
+  prenom=Albert Junior
+
+  email=koissialbertjunior@gmail.com
+
+  Profession=Etudiant
+
+  l'utilisateur koissi vient d'etre creer
+
+  nom=koissi
+
+  prenom=Albert Junior
+
+  email=albertkoissi.jr@gmail.com
+
+  Profession=Etudiant
+
+  l'utilisateur Roland vient d'etre creer
+
+  nom=Roland
+
+  prenom=yangala
+
+  email=roland@gmail.com
+
+  Profession=Etudiant
+
+  l'utilisateur makendji vient d'etre creer
+
+  nom=makendji
+
+  prenom=chancelie
+
+  email=chanceli@gmail.com
+
+  Profession=Etudiant
+
+  

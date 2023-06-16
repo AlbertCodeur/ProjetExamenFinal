@@ -16,9 +16,31 @@ if($result)
  {
     if($mail==$rows['mail'] and $mdp_secure==$rows['mdp'])
     {
+
         $_SESSION['idu']=$rows['idu'];
-        header("location:index.php");
-    }else{
+        $idu=$rows['idu'];
+        $req="SELECT * FROM user where idu=$idu";
+  $resultat=mysqli_query($conn,$req);
+  if($resultat)
+  {
+  if($rows=mysqli_fetch_assoc($resultat))
+ {
+  $nom=$rows['nom'];
+  $prenom=$rows['prenom'];
+  $datecon=date('l jS \of F Y h:i:s A');
+  $file="connexionuser.txt";
+  $line="l'utilisateur $nom$prenom s'est connecter a $datecon \n
+  ";
+  if(!file_put_contents($file,$line, FILE_APPEND)!==false)
+  {
+      echo"erreur connexion fichier";
+  }else
+  {
+    header("location:index.php");
+  }
+    }
+  }
+}else{
       ?>
 <div class="notification is-danger" style="width: 30%; margin-top: 170px; margin-bottom: 0%; margin-left: 35%;">
   <button class="delete"></button>

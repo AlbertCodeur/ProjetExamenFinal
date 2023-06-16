@@ -39,10 +39,22 @@ if($result)
 </div>
 </div>
 <div style=" margin-top: 5px; ; margin-right: 10px; font-size: 20px; width: 50px; height: 20px; color: lightgray;">
-<a href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>(0)
+<?php
+$code=$row['code'];
+$req="SELECT code FROM likes where code=$code";
+$result=mysqli_query($conn,$req);
+$likes=mysqli_num_rows($result);
+
+
+$req="SELECT code FROM partages where code=$code";
+$result=mysqli_query($conn,$req);
+$partages=mysqli_num_rows($result)
+?>
+<a href="actions.php?t=1&id=<?= $code ?>"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>(<?= $likes ?>)
 </div>
 <div  style=" margin-top: 5px; ; font-size: 20px; color: lightgray ; width: 50px; height: 20px;">
-<a href=""><i class="fa fa-share" aria-hidden="true"></i></a>(0)
+
+<a href="actions.php?t=2&id=<?= $code ?>"><i class="fa fa-share" aria-hidden="true"></i></a>(<?= $partages ?>)
 </div>
 </div>
 <?php
