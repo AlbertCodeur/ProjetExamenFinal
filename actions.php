@@ -46,18 +46,7 @@ if(isset($_GET['t'],$_GET['id'],$_SESSION['idu']) AND !empty($_GET['t']) AND !em
 }else{
   header("location:index.php");
 }
-if(isset($_GET['id']))
-{
-$code=$_GET['id'];
-$req="DELETE FROM posts WHERE code='$code'";
-try {
-    $resultat=mysqli_query($conn,$req);
-    header("location:index.php");
-} catch (Exception $e) {
-    $error=$e->getMessage();
-    echo "Erreur d'issertion!\n".$error;
-}
-}
+
 if(isset($_POST['soumettre']) AND isset($_GET['id']))
 {
 $idu=$_GET['id'];

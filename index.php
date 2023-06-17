@@ -46,8 +46,8 @@ if($resultat)
 </aside>
 </div>
 <?php }else{ ?>
-<div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd" style="width:auto; height: 100% ; margin-top: 5%;">
-<div style="width: 30%;position: fixed;" class="column  ">
+<div class="columns  is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd" style="width:auto; height: 100% ; margin-top: 5%;">
+<div style="width: 30%;position: fixed;" class="column has-background-warning-light box ">
 <aside class="menu">
   <p class="menu-label">
     General
@@ -109,12 +109,14 @@ if($result)
 </div>
 <div style=" padding: 10px; width: 100%; position: relative; display: inline-flex; height: 10%;">
 <div class="field has-addons" style=" width: 100%; right: 50px; margin: 20px;padding-right:0px;">
+<form action="index.php" method="POST">
 <div>
 <input class=" control input is-primary" type="text" name="commentaire" placeholder="commentaires">
 </div>
 <div class=" control">
-<a class="button is-primary" type="submit">envoyer</a>
+<button class="button is-primary" name="envoyer" type="submit">envoyer</button>
 </div>
+</form>
 </div>
 <div style=" margin-top: 5px; ; margin-right: 10px; font-size: 20px; width: 50px; height: 20px; color: lightgray;">
 <?php
@@ -136,9 +138,21 @@ $partages=mysqli_num_rows($result)
 </div>
 </div>
 <?php
+if(isset($_POST['envoyer']))
+{
+    $commentaire=$_POST['commentaire'];
+    $req="INSERT INTO commenter(commentaire,idu,code) VALUES('$commentaire','$idu','$code')";
+    try {
+        $result=mysqli_query($conn,$req);
+    } catch (Exception $e) {
+        $erreur=$e->getMessage();
+    }
+}
  }}else{
   echo "echo erreur insertion!";
  }
+
+ 
  ?>
 </div>
 </div>

@@ -94,7 +94,7 @@ Ajout d'un utilisateur
 <div class="field">
   <label class="label">Pourquoi voulez vous vous inscrire?</label>
   <div class="control">
-    <textarea name="motivation" class="textarea" placeholder="Textarea"><?= $row['motivation'] ?>"</textarea>
+    <textarea name="motivation" class="textarea" placeholder="Textarea"><?= $row['motivation'] ?></textarea>
   </div>
 </div>
 
