@@ -1,5 +1,5 @@
 <?php
-include "header.php"; 
+include "tete.php"; 
   if(isset($_GET['id']) AND !empty($_GET['id']) )
   {
     $code=$_GET['id'];

@@ -1,5 +1,5 @@
 <?php
-include "header.php";
+include "tete.php";
 $req="SELECT * FROM user";
 $result=mysqli_query($conn,$req);
 if($result)

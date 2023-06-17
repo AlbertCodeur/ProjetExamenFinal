@@ -1,5 +1,5 @@
 <?php
-include "header.php";
+include "tete.php";
 $idu=$_SESSION['idu'];
 $req="SELECT * FROM posts where idu=$idu";
 $resultat=mysqli_query($conn,$req);

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "header.php";
+include "tete.php";
 if(isset($_POST['publier']))
 {
 $idu=$_SESSION['idu'];

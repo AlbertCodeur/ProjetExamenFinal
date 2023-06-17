@@ -1,5 +1,5 @@
 <?php
-include "header.php";
+include "tete.php";
 if(isset($_GET['id']))
 {
     $idu=$_GET['id'];
